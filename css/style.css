@@ -1,1 +1,87 @@
+/*Universal Reset & Base Styling*/
+*{
+    margin: 0px;
+    padding: 0px;
+}
 
+body{
+    display: grid;
+    gap: 20px;
+}
+
+/*Grid Area Names*/
+header{
+    grid-area: header;
+    background-color: #f2f2f2;
+}
+
+nav{
+    grid-area: nav;
+    background-color: #e6e6e6;
+}
+
+main{
+    grid-area: main;
+    background-color: #cccccc;
+}
+
+footer{
+    grid-area: footer;
+    background-color: #b3b3b3;
+}
+
+/* -------------------- */
+/* 3. MOBILE LAYOUT     */
+/* Screens < 768px      */
+/* -------------------- */
+
+.page-wrapper {
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+}
+
+
+/* -------------------- */
+/* MAIN CONTENT GRID    */
+/* -------------------- */
+
+.main {
+    display: grid;
+    gap: 20px;
+}
+
+.card {
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+
+/* -------------------- */
+/* 4. DESKTOP LAYOUT    */
+/* Screens >= 768px     */
+/* -------------------- */
+
+@media (min-width: 768px) {
+
+    .page-wrapper {
+        grid-template-columns: 220px 1fr;
+
+        grid-template-areas:
+            "header header"
+            "nav    main"
+            "footer footer";
+    }
+
+    /* Inner grid for the cards */
+    .main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Card 1 spans the entire main area */
+    .card1 {
+        grid-column: 1 / -1;
+    }
+}
