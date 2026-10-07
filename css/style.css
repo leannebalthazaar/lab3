@@ -7,33 +7,48 @@
 body{
     display: grid;
     gap: 20px;
+    font-family: Georgia;
+    color: black;
 }
 
 /*Grid Area Names*/
 header{
     grid-area: header;
-    background-color: #f2f2f2;
+    background-color: #b6a39e;
 }
 
 nav{
     grid-area: nav;
-    background-color: #e6e6e6;
+    background-color: #D0D1AC;
+}
+
+nav ul {
+    list-style-type: disc;
+    padding-left: 50px;
 }
 
 main{
     grid-area: main;
-    background-color: #cccccc;
+    color: #FFF8F0;
+}
+
+.card1{
+    background-color: #726E75;
+}
+
+.card2{
+    background-color: #948B89;
+}
+
+.card3{
+    background-color: #948B89;
 }
 
 footer{
     grid-area: footer;
-    background-color: #b3b3b3;
+    background-color: #B6A39E;
 }
 
-/* -------------------- */
-/* 3. MOBILE LAYOUT     */
-/* Screens < 768px      */
-/* -------------------- */
 
 .page-wrapper {
     grid-template-areas:
@@ -44,29 +59,34 @@ footer{
 }
 
 
-/* -------------------- */
 /* MAIN CONTENT GRID    */
-/* -------------------- */
 
-.main {
+main{
     display: grid;
     gap: 20px;
 }
 
-.card {
+article{
     padding: 20px;
     border: 1px solid #ccc;
 }
 
+@media (max-width: 768px) {
+    body{
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "footer";
+    }
+}
 
-/* -------------------- */
-/* 4. DESKTOP LAYOUT    */
-/* Screens >= 768px     */
-/* -------------------- */
+/*Desktop Layout*/
 
 @media (min-width: 768px) {
 
-    .page-wrapper {
+    body{
         grid-template-columns: 220px 1fr;
 
         grid-template-areas:
@@ -75,12 +95,10 @@ footer{
             "footer footer";
     }
 
-    /* Inner grid for the cards */
-    .main {
+    main {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Card 1 spans the entire main area */
     .card1 {
         grid-column: 1 / -1;
     }
